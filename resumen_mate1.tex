@@ -1,0 +1,1080 @@
+\documentclass{report}
+\usepackage[spanish]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage[a4paper, margin=2cm]{geometry}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	filecolor=magenta,      
+	urlcolor=teal,
+	pdftitle={Resumen Mate 1},
+	breaklinks=true,
+}
+
+\begin{document}
+	
+\begin{titlepage}
+	\begin{center}
+		\vspace*{7cm}
+		
+		\Huge
+		\textbf{Resumen - Matemática I}
+		
+		\vspace{1cm}
+		\LARGE
+		Análisis matemático - funciones de una variable
+		
+		\vspace{1.5cm}
+		
+		\textbf{Tomás A. Castro}
+		
+		
+	\end{center}
+\end{titlepage}
+
+\renewcommand{\abstractname}{\Huge ACLARACIÓN\\}
+\begin{abstract}
+	
+	{\Large Este es mi resumen de Matemática 1, como práctica para iniciarme en \LaTeX. Espero que el que quiera evacuar sus dudas sobre algún tema en alguna unidad le sirva para algo. Incluí algunas demostraciones que me parecieron interesantes, y también en varios casos complementé la teoría con observaciones personales mías.
+	
+	\textbf{Este material sólo de consulta. No utilizar en reemplazo del material o apuntes de estudio que ofrezca la cátedra.}
+	
+	Cualquier colaboración o sugerencia es bienvenida.
+	
+	\
+	
+	Tomás A. Castro
+	
+	tomacastro@itba.edu.ar}
+\end{abstract}
+
+\tableofcontents
+
+\chapter{Unidad 1: Límite}
+	\section{Acotación}
+		Sea $U \in R$, $U \neq \varnothing$
+	
+\begin{description}
+	\item[M es Cota superior de U si:] $M \geq u, \forall u \in U$
+	\item[Conjunto acotado superiormente:] Tiene al menos 1 cota superior (y tendrá infinitas)
+	\item[Supremo:] La menor cota superior de un conjunto acotado superiormente. Si el supremo pertenece al conjunto entonces también es máximo del conjunto.
+	\item[M es Cota inferior de U si:] $M \leq u, \forall u \in U$
+	\item[Conjunto acotado inferiormente:] Tiene al menos 1 cota inferior (y tendrá infinitas)
+	\item[Ínfimo:] La menor cota inferior de un conjunto acotado inferiormente. Si el ínfimo pertenece al conjunto entonces también es mínimo del conjunto.
+	\item[Conjunto acotado:] Está acotado superior e inferiormente.
+\end{description}
+
+Ejemplos: 
+
+$(-\infty,2)$ está acotado superiormente, $sup((-\infty,2))=2$ y el conjunto no tiene máximo ni cotas inferiores.
+
+$(-\infty,2]$ está acotado superiormente, $max((-\infty,2])=2$ y el conjunto no tiene cotas inferiores.
+
+$\mathbb{R}$ no es un conjunto acotado. Tampoco lo es el conjunto $(-\infty,2) \cup (10, +\infty)$
+
+El conjunto $(-1,1)$ está acotado pero no tiene máximo ni mínimo.
+
+El conjunto $[-1,1]$ está acotado y tiene máximo y mínimo.
+
+	\section{módulo: equivalencias}
+	
+	$A = \{x \in \mathbb{R} / d(x, a) \leq r\} = \{x \in \mathbb{R} / |x-a| \leq r\} = [a-r,a+r]$
+	
+	$A = \{x \in \mathbb{R} / 0 < d(x, a) \leq r\} = \{x \in \mathbb{R} / 0 < |x-a| \leq r\} = [a-r,a) \cup (a,a+r)$
+	
+	$A = \{x \in \mathbb{R} / d(x, a)>r\} = \{x \in \mathbb{R} / |x-a|>r\} = (-\infty, a-r) \cup (a+r,+\infty)$
+	
+	\section{Entorno simple de centro a y radio $\delta$}
+		E(a,$\delta$) = {$x \in \mathbb{R} / |x-a|<\delta$} = $(a-\delta,a+\delta)$
+		
+	\section{Entorno reducido de centro a y radio $\delta$}
+		E*(a,$\delta$) = {$x \in \mathbb{R} / 0 < |x-a|<\delta$} = $(a-\delta,a+\delta) - \{a\}$
+	
+	\section{Definición formal de Límite}
+	\label{definicion1}
+		Sea:
+		
+	\begin{itemize}
+		\item f(x) una función definida en un intervalo abierto alrededor de a.
+		\item $E^{*}(a,\delta) \subset dom(f)$
+	\end{itemize}
+		
+		$L \in \mathbb{R}$ es el límite de f(x) cuando x tiende a a si se cumple:
+		
+		$$\forall \epsilon > 0 : \{\exists  \ \delta(\epsilon) \ tal \ que \ x \in E^{*}(a,\delta) \rightarrow f(x) \in E(L,\epsilon)\}$$		
+		$$\forall \epsilon > 0 : \{\exists  \ \delta(\epsilon) \ tal \ que \ 0 < |x-a| < \delta \rightarrow |f(x)-L| < \epsilon\}$$
+
+	\section{Teorema: Límites notables}
+		Sea $a, k \in \mathbb{R}$ y $ s \in (-1,1)$
+		\begin{itemize}
+			\item $\lim_{x \to a}k=k$
+			\item $\lim_{x \to a}x^n=a^n$
+			\item $\lim_{x \to a}\frac{p(x)}{q(x)}=\frac{p(a)}{q(a)}$ si $q(a) \neq 0$
+			\item $\lim_{x \to a}|x|=|a|$
+			\item $\lim_{x \to a}\sqrt[n]{x}=\sqrt[n]{a} \ (si \ \sqrt[n]{a} \in \mathbb{R})$
+			\item $\lim_{x \to a}b^x=b^a$ (b > 0)
+			\item $\lim_{x \to a}log_{b}(x)=log_{b}(a)$ (b>0)
+			\item $\lim_{x \to a}sen(x)=sen(a)$
+			\item $\lim_{x \to a}cos(x)=cos(a)$
+			\item $\lim_{x \to s}asen(x)=asen(s)$
+			\item $\lim_{x \to s}acos(x)=acos(s)$
+			\item $\lim_{x \to s}atan(x)=atan(s)$
+			
+		\end{itemize}
+	
+	\section{Teorema: Álgebra de límites}
+		Si $F,G,c,K \in \mathbb{R}$ y $\\lim_{x \to c}f(x)=F$, $\\lim_{x \to c}g(x)=G$
+		
+		\begin{itemize}
+			\item $\lim_{x \to c}f(x) + g(x)=F+G$
+			\item $\lim_{x \to c}k*f(x) = k*F$
+			\item $\lim_{x \to c}f(x)*g(x)=F*G$
+			\item $\lim_{x \to c}f(x)/g(x)=F/G$ (si G distinto de 0)
+			\item $\lim_{x \to c}f^r(x) =F^r$ (si $F^r \in \mathbb{R})$
+			
+		\end{itemize}
+	
+	\section{Teorema: Límite de composiciones (cambio de variable)}
+		Si $\lim_{x \to a}f(x)=b$, $\lim_{y \to b}g(y)=L$. Si además, $f(x) \neq b$ cuando $x \in E^*(a, r)$ o bien, $g(b)=L$.
+		
+		Entonces $\lim_{x \to a}g(f(x))=L$
+		
+		Notación: se puede directamente escribir como
+		
+		$$\lim_{x \to a}g(f(x)) = \lim_{y \to b}g(y) = L$$
+		CV: y=f(x) , si x->a entonces y->b (pudiendo a=b, y no necesariamente b=f(a))
+		
+	\section{Función acotada}
+		f(x) es acotada en $A \subset \mathbb{R}$ si:
+		
+		$$\exists M \geq 0 / \{ f(x) \in E(0,M), \forall x \in A\}$$
+		
+		Ejemplo: la función 1/x no es acotada en (0,1) pero sí lo es en (0.5, 1)
+		
+	\section{Teorema: 0*acotada}
+		Si f es acotada en $E^*(a,r)$ y $\lim_{x \to a}g(x)=0$
+		
+		Entonces: $\lim_{x \to a}f(x)*g(x)=0$
+		
+		Generalmente se usa cuando aparecen funciones acotables en límites como $\lfloor x \rfloor$ o $sen(1/x)$
+		
+	\section{Teorema de intercalación (sandwich)}
+		Si $g(x) \leq f(x) \leq h(x) \forall x \in E^{*}(a,r)$
+		Si $\lim_{x \to a}g(x)=\lim_{x \to a}h(x)=L$
+		
+		Entonces $\lim_{x \to a}f(x)=L$
+		
+	\section{Caso particular de intercalación: lim senx/x}
+		A partir del teorema anterior (considerando que $0<x<\pi/2$ y $senx \leq x \leq tanx$) se obtiene la siguiente conclusión:
+		
+		$$\lim_{x \to 0}\frac{senx}{x}=1$$
+		
+	\section{Límites laterales}
+		\subsection{Límite de x hacia a por izquierda}
+		$$\lim_{x \to a-}f(x)=L \leftrightarrow \forall \epsilon > 0 \ \exists \delta(\epsilon)>0 \ / \{x \in E^-(a,\delta) \rightarrow f(x) \in E(L,\epsilon)\}$$
+		
+		donde $E^-(a,\delta) = (a-\delta,a)$
+		
+		\subsection{Límite de x hacia a por derecha}
+		$$\lim_{x \to a+}f(x)=L \leftrightarrow \forall \epsilon > 0 \ \exists \delta(\epsilon)>0 \ / \{x \in E^+(a,\delta) \rightarrow f(x) \in E(L,\epsilon)\}$$
+		
+		donde $E^+(a,\delta) = (a,a+\delta)$
+		
+		\subsection{Teorema de límites laterales}
+		$$\lim_{x \to a}f(x)=L \longleftrightarrow (\lim_{x \to a+}f(x)=L \wedge \lim_{x \to a-}f(x)=L)$$
+		
+		Con esto se puede probar por ejemplo que $\nexists \lim_{x \to 0}x/|x|$. Otro ejemplo puede ser:
+		
+		$$\lim_{x \to 0+}(4^{1/x}+3^{1/x})^x=\lim_{x \to 0+}4[1+(3/4)^{1/x}]^x=4$$
+		$$\lim_{x \to 0-}(4^{1/x}+3^{1/x})^x=\lim_{x \to 0-}3[1+(4/3)^{1/x}]^x=3$$
+		$$\therefore \nexists \lim_{x \to 0}(4^{1/x}+3^{1/x})^x$$
+		
+	\section{Límites infinitos}
+		Si f está definida en $E^*(a,\delta)>0$, entonces se define:
+		
+		\subsection{Límite infinito positivo}
+		$$\lim_{x \to a}f(x)=+\infty \leftrightarrow \forall M > 0 \ \exists \delta(M)>0 \ / \{x \in E^*(a,\delta) \rightarrow f(x) > M\}$$
+		
+		\subsection{Límite infinito negativo}
+		$$\lim_{x \to a}f(x)=-\infty \leftrightarrow \forall M > 0 \ \exists \delta(M)>0 \ / \{x \in E^*(a,\delta) \rightarrow f(x) < M\} \leftrightarrow \lim_{x \to a}-f(x)=+\infty$$
+		
+		\subsection{Límite infinito}
+		$$\lim_{x \to a}f(x)=\infty \leftrightarrow \lim_{x \to a}|f(x)|=+\infty$$
+		
+		OBS:
+		
+		\begin{itemize}
+			\item $\lim_{x \to a}f(x)=+\infty \rightarrow \lim_{x \to a}f(x)=\infty$ , en general es necesario explicitar lo mas que se pueda. Por ejemplo $\lim_{x \to 0}1/x=\infty$, mientras que también $\lim_{x \to 0}1/x^2=\infty$ pero es de más interés aclarar que $\lim_{x \to 0}1/x^2=+\infty$
+			
+			\item El límite de una función en el punto a no existe si es infinito. Aunque sea necesario aclarar que el límite es infinito, la definición formal no es la misma. Que el límite sea infinito no quiere decir que f tiende a un valor sino que "f puede ser tan grande como se quisiera cuando x está en un entorno red del punto a"
+			
+		\end{itemize}
+	
+		\subsection{Teorema: Propiedad de límites infinitos}
+			
+			$$\lim_{x \to a}f(x)=\infty \leftrightarrow \lim_{x \to a}1/f(x) = 0$$
+		
+		\subsection{operatoria con limites infinitos}
+			Si $\lim_{x \to a}f(x)=F \in \mathbb{R}, \lim_{x \to a}g(x) = 0$ y $\lim_{x \to a}h(x)=\infty$. Aplicando la propiedad anterior se tiene:
+			
+			\begin{itemize}
+				\item $\lim_{x \to a}f(x)/g(x) = \infty$
+				\item $\lim_{x \to a}f(x)/h(x) = \infty$
+				\item $\lim_{x \to a}f(x)*h(x) \ '=' \lim_{x \to a}h(x)*h(x) = \infty$ si $A \neq 0$
+				\item $\lim_{x \to a}f(x)+h(x) = \infty$
+			\end{itemize}
+		
+			Resumen (no son igualdades algebraicas): A/0 = infinito, A/infinito=0, A*infinito = infinito si A $\neq$ 0, A+infinito = infinito, acotada+infinito=infinito. Recordar que la regla de signos vale para los infinitos.
+			
+	\section{Indeterminaciones}
+		De todas las propiedades anteriores y que aún quedan, quedan las siguientes indeterminaciones: $0/0, \infty/\infty, 0*\infty, \infty+\infty$ (analizar signos para saber si es indeterminación), $+\infty^0$, $0^0$, $1^\infty$
+		
+		(el resultado del límite no se sabe a priori y depende de cuales sean las funciones)
+		
+	\section{Límites en el infinito}
+		\subsection{Límite en infinito positivo}
+			
+			$$\lim_{x \to +\infty}f(x) = L \leftrightarrow \forall \epsilon > 0 \ , \exists R(\epsilon)>0 \ / \ \{x>R \rightarrow f(x) \in E(L,\epsilon)\}$$
+		
+		\subsection{Límite en infinito negativo}
+		
+			$$\lim_{x \to -\infty}f(x) = L \leftrightarrow \forall \epsilon > 0 \ , \exists R(\epsilon)>0 \ / \ \{x<-R \rightarrow f(x) \in E(L,\epsilon)\}$$
+			
+		\subsection{Límite en infinito}
+			$$\lim_{x \to \infty}f(x) = L \leftrightarrow \forall \epsilon > 0 \ , \exists R(\epsilon)>0 \ / \ \{|x|>R \rightarrow f(x) \in E(L,\epsilon)\}$$
+			$$\lim_{x \to \infty}f(x) = L \leftrightarrow \lim_{x \to +\infty}f(x) = \lim_{x \to -\infty}f(x) = L$$
+			
+			Recordar gráficos y ejemplos de funciones típicas(se consideran límites notables)
+			
+		\subsection{Operatoria con límites en el infinito}
+			Se cumplen las mismas propiedades que los límites en números reales (álgebra de límites, cambio de variable y operatoria de límites infinitos)
+			
+			Para resolver conviene sacar factor común del término dominante y simplificarlo.
+			
+	\section{Límites f a la g}
+		Sea f(x) positiva cerca de a, salvo quizá en a. 
+		Si además $\lim_{x \to a}f(x)=F > 0$ y $\lim_{x \to a}g(x)=G \in \mathbb{R}$.
+		
+		Entonces: $\lim_{x \to a}f(x)^{g(x)}=F^G$
+		
+		Si se tiene una indeterminación del tipo $0^0$ o $+\infty^0$. Generalmente se necesita usar la Regla de L'Hospital.
+		
+		Si se tiene una indeterminación del tipo $1^\infty$ (la base no es 1, sino que TIENDE a 1), entonces se utiliza el siguiente límite notable:
+		
+		$$\lim_{x \to \infty} (1+1/x)^x = e$$
+		
+		De este límite notable se deduce también los siguientes límites que son útiles:
+		
+		\begin{itemize}
+			\item $\lim_{x \to 0} (1+x)^{1/x} = e$
+			\item $\lim_{x \to \infty} (1+1/f)^f = e$ si $\lim_{x \to \infty}f(x)=\infty$
+			\item $\lim_{x \to 0}\frac{ln(1+x)}{x} = 1$ (levantar el denominador)
+			\item $\lim_{x \to 0}\frac{e^x-1}{x} = 1$ (usar cambio de variable del numerador)
+		\end{itemize}
+	
+\chapter{Unidad 2: Continuidad}
+	\section{Continuidad de una función en un punto}
+		"Si f es continua, puede graficarse en un único trazo. Si f es continua en a, entonces si x está cerca de a f(x) está cerca de f(a)"
+		
+		f es continua en un punto $a \in \mathbb{R}$ si se cumple que:
+		
+		$$a \in dom(f) \wedge \lim_{x \to a} f(x)=f(a)$$
+		
+	\section{Propiedades básicas de la continuidad}
+		Si f y g son funciones continuas en $x=a$, entonces:
+		
+		\begin{itemize}
+			\item $f+g$ es continua en a
+			\item $k*f$ es continua en a ($k \in \mathbb{R}$)
+			\item $f*g$ es continua en a
+			\item $f/g$ es continua en a ($g(a) \neq 0$)
+			\item $f^r$ es continua en a ($f$ debe estar definida en $E(a, \delta)$)
+			\item $g(f(x))$ es continua si $g$ es continua en $f(a)$
+			\item Las funciones elementales son continuas en todo su dominio. (Polinomios, racionales, exponenciales, logarítmicas, trigonométricas, hiperbólicas (directas e inversas))
+		\end{itemize}
+	
+	\section{Discontinuidad}
+		f es discontinua en a si y sólo si no es continua en a. Ejemplos: $sg(x), \lfloor x \rfloor$ \textit{¿En que punto(s) son discontinuas?}
+		
+	\section{Tipos de discontinuidad}
+		\subsection{Discontinuidad Evitable}
+			Si a es discontinuidad evitable, definiendo $f(a)=L$ f es continua en a. 
+			
+			$a \in \mathbb{R}$ es discontinuidad evitable de f si $\lim_{x \to a}f(x)=L \in \mathbb{R}$
+			
+		\subsection{Discontinuidad No Evitable o Escencial}
+			\begin{description}
+				\item[Salto:] Existen los limites laterales en a pero son diferentes.
+				\item[Asíntota:] Cualquiera de los límites laterales en a es infinito.
+				\item[Otro:] No entra en las clasificaciones anteriores. Ej: $f(x)=sen(1/x)$ es discontinua en $x=0$.
+			\end{description}
+		
+	\section{Continuidad en un intervalo}
+		f es continua en el intervalo [a,b] si se cumplen las siguientes proposiciones:
+		
+		\begin{itemize}
+			\item f es continua $\forall x \in (a,b)$
+			\item $\lim_{x \to a+}f(x) = f(a)$
+			\item $\lim_{x \to b-}f(x) = f(b)$
+		\end{itemize}
+	
+	\section{Teorema de Bolzano}
+		Sea $f$ continua en $[a,b]$, $f(a)*f(b) < 0$.
+		
+		Entonces $\exists c \in (a,b) / f(c) = 0$
+		
+		El teorema de Bolzano permite determinar si alguna ecuación tiene solución real. Sólo informa que existe al menos una solución, no indica la cantida exacta de soluciones.
+		
+	\section{Corolario del teorema de Bolzano (CTB)}
+		Sea $f$ continua en $(a,b)$ o $[a,b]$ con $f(x) \neq 0 \forall x \in (a,b)$
+		Entonces f mantiene el signo en $(a,b)$ (probar por absurdo)
+		
+	\section{Teorema del Valor Intermedio (extensión de Bolzano)}
+		Sea $f$ continua en $[a,b]$, $f(a) \neq f(b)$. Entonces:
+		
+		\begin{itemize}
+			\item Si $f(a) < f(b) \rightarrow [f(a),f(b)] \in f([a,b])$
+			\item Si $f(b) < f(a) \rightarrow [f(b),f(a)] \in f([b,a])$
+			\item "f toma todos los valores entre f(a) y f(b)"
+		\end{itemize}
+	
+	(Probarlo suponiendo un valor k entre f(a) y f(b), restarlo a f(x) y probar que la nueva función auxiliar cumple Bolzano)
+	
+	\section{Teorema del Valor Intermedio Extendido (usarlo para intervalos abiertos)}
+		Sea $f$ continua en $(a,b)$, $\lim_{x \to a+}f(x)=c$, $\lim_{x \to b-}f(x)=d$ $c \neq d$. Entonces:
+	
+	\begin{itemize}
+		\item Si $c < d \rightarrow (c,d) \in f((a,b))$
+		\item Si $d < c \rightarrow (d,c) \in f((a,b))$
+	\end{itemize}
+
+	\section{Teorema del Valor Intermedio para límites infinitos}
+		Sea $f$ continua en $(a,b)$, pudiendo ser $a=-\infty$ o $b=+\infty$
+		Si se cumple cualquiera de las siguientes proposiciones:
+	
+		\begin{itemize}
+			\item $\lim_{x \to a+} f(x)=-\infty \wedge \lim_{x \to b-}f(x)=+\infty$
+			\item $\lim_{x \to a+} {f(x)}=+\infty \wedge \lim_{x \to b-}f(x)=-\infty$
+		\end{itemize}
+		
+		Entonces $im(f)=\mathbb{R}$ (f es sobreyectiva).
+
+\chapter{Unidad 3: Derivada}
+	\section{función derivada}
+		Sea f una función definida en $E(a, \delta)$. La función derivada de f en a es el siguiente límite (si existe):
+		
+		$$f'(a) = \lim_{x \to a}\frac{f(x)-f(a)}{x-a} = \lim_{x \to a}\frac{\Delta f}{\Delta x}$$
+		
+		Donde $\frac{\Delta f}{\Delta x}$ es el cociente incremental.
+		
+		Definición equivalente (esta es más útil para demostraciones):
+		
+		$$f'(a) = \lim_{h \to 0}\frac{f(a+h)-f(a)}{h}$$
+		
+		Notaciones de derivada (todas son formas de expresar lo mismo):
+		
+		$$f'(a) \equiv \dot{f(a)} \equiv Df(a) \equiv \frac{df}{da}(a)$$
+		
+	\section{Interpretaciones}
+		La función derivada da la pendiente de la recta tangente en un punto del gráfico de la función. La función derivada también mide la velocidad de cambio de la variable dependiente respecto de la independiente (para esto se puede pensar que si la posición(tiempo) es una función, la velocidad[posición/tiempo] sería su derivada).
+		
+	\section{Teorema: derivavilidad implica continuidad}
+		Si f es derivable en a, f es continua en a (no necesariamente al revés).
+		
+	\section{Casos en los que una función no es derivable en a}
+	
+		\begin{itemize}
+			\item Si las derivadas laterales son diferentes en a. (El gráfico queda "en punta en a"). (Ejemplo: función |x| en a=0)
+			
+			\item Si hay una asíntota en a. (Ejemplo: 1/x en 0)
+			
+			\item Si la recta tangente al gráfico de f en a es vertical. (La derivada tiende a infinito). (Ejemplo: $\sqrt[3]{x}$ en 0)
+			
+			\item Si f es discontinua en a. Ejemplo: $\lfloor$ f $\rfloor$
+		\end{itemize}
+	
+	\section{Derivadas notables}
+	
+		\begin{itemize}
+			\item $(k)'=0 \ \forall k \in \mathbb{R}$
+			\item $(x^r)'=r*x^{r-1} \ \forall r \in \mathbb{R}$
+			\item $(b^x)'=b^x*\ln b  \ \forall b >0, b \neq 1$
+			\item $(\log_b x)' = \frac{1}{x*\ln b} \forall b >0, b \neq 1$
+			\item $(\sin x)' = \cos x$
+			\item $(\cos x)' = -\sin x$
+			\item $(\tan x)' = \sec^2 x = 1+\tan^2 x$
+			\item $(\arcsin x)' = \frac{1}{\sqrt{1-x^2}}$
+			\item $(\arccos x)' = \frac{-1}{\sqrt{1-x^2}}$
+			\item $(\arctan x)' = \frac{1}{1+x^2}$
+		\end{itemize}
+	
+	\section{Teorema: Reglas de derivación}
+		Si f y g son derivables en $a \in \mathbb{R}$:
+		
+			\begin{itemize}
+				\item $(kf)'(a) = kf'(a) \ \forall k \in \mathbb{R}$
+				\item $(f+g)'(a) = f'(a)+g'(a)$
+				\item $(fg)'(a) = f'(a)g(a)+f(a)g'(a)$
+				\item $(f/g)'(a) = \frac{f'(a)g(a)-f(a)g'(a)}{g^2(a)}$
+			\end{itemize}
+		
+	\section{Teorema: Regla de la cadena}
+		Sea $h(x)=g \circ f(x)$. Si $f$ es derivable en $a$ y $g$ es derivable en $f(a)$, entonces:
+		
+		$$h'(a)=g'(f(a))*f(a)$$
+		
+		Regla memotécnica: $\frac{dh}{dx} = \frac{dh}{dy} \frac{dy}{dx}$ (ojo no es válido para demostrar el teorema porque dx podría ser 0)
+		
+	\section{Teorema: Derivada de $f^g$}
+		Sea $h(x)=f(x)^{g(x)}.$ Entonces:
+		
+		$$h'(x)=(f(x)^{g(x)})'= (e^{g(x)\ln(f(x))})' = e^{g(x)\ln(f(x))} (g(x) \ln f(x)))' = f(x)^{g(x)} (g'(x) \ln(f(x))+g(x)\frac{f'(x)}{f(x)})$$
+		
+	\section{Intervalo de derivación}
+		Si una función está definida mediante funciones elementales en un intervalo $[a,b]$ donde los extremos $a,b$ no son infinitos, entonces la derivada estará "a priori" definida exclusivamente en $(a,b)$ (salvo que se aclare algo diferente) pues no se conoce el valor de $f(a-)$ ni $f(b+)$.
+		
+	\section{Teorema: derivada de una función por tramos}
+		Sean $f, g$ funciones derivables en $a \in \mathbb{R}$. Entonces $h(x) = \begin{cases}
+			&f(x) \ si \ x<a \\
+			&g(x) \ si \ x\geq a \\
+		\end{cases}$ es derivable en $a$ si y sólo si $\begin{cases}
+		&f(a) = g(a) \\
+		&f'(a) = g'(a) \\
+	\end{cases}$
+		
+	\section{Teorema: Derivada de función inversa}
+		Sea $f:(a,b) \rightarrow \mathbb{R}$ continua e inyectiva. Entonces:
+		
+		\begin{itemize}
+			\item Si $f(a,b)\rightarrow(c,d)$ es biyectiva $\rightarrow f^-1:(c,d)\rightarrow(a,b)$ es continua
+			\item Si $\exists f'(x0) \neq 0, x0 \in(a,b) \rightarrow (f^-1)'(f(x0))=\frac{1}{f'(x0)}$
+				
+		\end{itemize}
+	
+		La demo es muy fácil (Partir de que $fof^-1(x)=x$ y derivar ambos lados respecto de $x$).
+		
+		Este teorema es útil para probar las fórmulas de derivación en funciones inversas (arcoseno, etc.).
+		
+	\section{Derivadas de orden superior}
+		\subsection{2da derivada}
+			Sea f derivable en a. Si f' está definida en $E(a, \delta)$ entonces si f' también es derivable, se define la derivada de segundo orden (segunda derivada) de f en a como:
+			
+			$$f''(a) = (f')'(a) = \lim_{x \to a}\frac{f'(x)-f'(a)}{x-a}$$
+			
+		\subsection{Derivada n-ésima, definición recursiva}
+			
+		$$f^(0)=f(x) \ ; \ f^{(n+1)}(a) = (f^{(n+1)})'(a)$$
+		
+			Cuando se tenga que poner más de tres apóstrofes, directamente indicar el orden entre paréntesis (para poder diferenciar de la operación potencia)
+			
+		\subsection{Fórmulas típicas de derivada superior}
+		
+		A completar
+			
+	\section{Derivación implícita}
+		A veces, una función queda definida de manera implícita (con una ecuación). En estos casos no es necesario encontrar la fórmula explícita, se puede derivar directamente respecto a una variable ambos lados de la ecuación.
+		
+	\section{Algunas consideraciones útiles}
+		\subsection{Existencia de la derivada} 
+			Si se tiene una función que resulta de realizar operaciones o composiciones de funciones que son derivables en un punto, entonces dicha función también es derivable en ese punto.
+			
+			Si se tiene una función de suma de varios términos, donde alguno no es derivable en algún punto, la derivada existe si es posible cancelar ese término con algún otro para que la fórmula completa pueda ser derivable. (Mejor plantear y calcular el límite "a mano" directamente)
+			
+			Si se tiene una función que es producto de funciones en donde una es derivable y la otra no lo es (siempre en un punto), entonces no hay ninguna regla que permita determinar si existe la derivada. Acá sí o sí hay que calcular a mano (por definición) en el punto que se quiere saber si existe.
+			
+			Ejemplos:
+			
+			\begin{itemize}
+				\item $f(x)=|x|$ no es derivable en $x=0$ porque las derivadas laterales no coinciden ($f'(0-)=-1$ y $f'(0+)=1$).
+				\item $f(x)=|x|x$ es derivable en 0, pues:
+				
+				$$\lim_{x \to 0} \frac{x|x|-f(0)}{x} = \lim_{x \to 0} \frac{x|x|}{x} = \lim_{x \to 0}|x| = 0 = f'(0)$$
+				
+				\item $f(x)=x^2\lfloor x \rfloor$ es derivable?
+				
+				Si $x \notin \mathbb{Z}$, entonces $\exists k \in \mathbb{Z} \ / \ k < x <k+1$. A su vez esto implica que $\lfloor x \rfloor = k$ (constante). Por lo que es una función derivable. Por otro lado si $x^2$ es derivable en $\mathbb{R}$ entonces $x^2$ es derivable en $\mathbb{R\textbackslash Z}$. Luego $f$ es derivable en  $\mathbb{R\textbackslash Z}$ por ser producto de funciones derivables.
+				
+				Si $x =k \in \mathbb{Z}$ (Para este caso conviene probar la no continuidad directamente). Puesto que:
+				
+				$$\lim_{x\to k+}{x^2 \lfloor x \rfloor}=k^3 \wedge \lim_{x\to k-}{x^2 \lfloor x \rfloor}=k^2(k-1)$$
+				
+				Entonces $f$ es continua en $k$ $\leftrightarrow$ $k^3=k^2(k-1) \leftrightarrow k=0$.
+				
+				Si $k\neq 0$, $f$ es discontinua y entonces no es derivable. Si $k = 0$: (necesario plantear 'a mano' la derivabilidad)
+				
+				$$\lim_{x \to 0}\frac{f(x)-f(0)}{x} = \lim_{x \to 0}\frac{f(x)}{x} = \lim_{x \to 0}x \lfloor x \rfloor (= "0*acot") = 0 = f'(0)$$
+				
+				Luego la función es derivable sólo en $\{\mathbb{R}\textbackslash \mathbb{Z}\} \cup \{0\}$
+				
+				\item $f(x)=\sqrt{|x|}$ es derivable en $\mathbb{R}\textbackslash \{0\}$ puesto que el argumento de la raíz es positivo (la raíz es función elemental). En 0, la función no es derivable (ver que el límite da $+ \inf$, por lo que la recta tangente es vertical).
+				
+				\item $f(x)=|x|^{k}$ $(k>0)$, la función es derivable en $\mathbb{R}\textbackslash \{0\}$ por ser composición de funciones derivables. En $x=0$:
+				
+				$$f'(0+) = \lim_{x \to 0+}{\frac{f(x)-f(0)}{x}} = \lim_{x \to 0+}{\frac{f(x)}{x}} = \lim_{x \to 0+}{\frac{|x|^{k}}{x}} = \lim_{x \to 0+}{\frac{x^{k}}{x}} = \lim_{x \to 0+}{x^{k-1}} = $$
+				
+				$\begin{cases}
+					&0 \ si\ k>1 \\
+					&1 \ si\ k=1 \\
+					&+\infty \ si \ k<1 (descartado)\\
+				\end{cases}$
+			
+				$$f'(0-) = \lim_{x \to 0-}{\frac{f(x)-f(0)}{x}} = \lim_{x \to 0-}{\frac{f(x)}{x}} = \lim_{x \to 0-}{\frac{|x|^{k}}{x}} = \lim_{x \to 0-}{\frac{(-x)^{k}}{x}} =^{*} = \lim_{x \to 0-}{\frac{-(-x)^{k}}{-x} \lim_{x \to 0-}{-(-x)^{k-1}}} = $$
+				
+				$\begin{cases}
+					&0 \ si\ k>1 \\
+					&-1 \ si\ k=1 \\
+				\end{cases}$
+			
+			En * no vale hacer $(-x)^{k}=(-1)^kx^k$.  Luego $f$ es derivable en $\mathbb{R}\textbackslash \{0\}$ si $k>1$.
+			\end{itemize}
+		
+		\subsection{Continuidad de la función derivada}
+			\begin{itemize}
+				\item $f(x)=\begin{cases}
+					&xsen(1/x) \ si\ x\neq0 \\
+					&0 \ si\ x=0 \\
+				\end{cases}$ es continua en 0, sin embargo, las derivadas laterales no existen:
+			
+				$$\lim_{x \to 0}{\frac{f(x)-f(0)}{x}} = \lim_{x \to 0}{\frac{f(x)}{x}} = \lim_{x \to 0}{\frac{xsen(1/x)}{x}} = \lim_{x \to 0}{sen(1/x)} (no \ existe)$$
+				
+				\item Ahora bien, si $f(x)=\begin{cases}
+					&x^2sen(1/x) \ si\ x\neq0 \\
+					&0 \ si\ x=0 \\
+				\end{cases}$ , ahora la función es derivable en 0, pues:
+			
+				$$\lim_{x \to 0}{\frac{f(x)-f(0)}{x}} = \lim_{x \to 0}{\frac{f(x)}{x}} = \lim_{x \to 0}{\frac{x^2sen(1/x)}{x}} = \lim_{x \to 0}{x*sen(1/x)} = 0$$
+				
+				Sin embargo, para $x\neq 0$, aplicando reglas de la derivación, se tiene:
+				
+					$$f'(x)=2xsen(1/x)-cos(1/x)$$
+					
+				Luego, el límite de $f'(x)$ cuando $x$ tiende a 0 no existe (ni por la derecha ni por la izquierda) y se puede concluir erróneamente que no existe $f'(0)$. Sin embargo, lo que se está demostrando con esto es que no existe el límite de la función derivada por izquierda y por derecha, que no implica que no exista la función derivada en 0.
+				
+				Notar que en este caso $f'(0) \neq lim_{x\to 0}{f'(x)}$ por lo que existe $f'(0)$ a la vez que $f'$ es discontinua en 0.
+				
+				\item Un último ejemplo. La función $f(x)= \begin{cases}
+					&x^2 \ si\ x\in\mathbb{Q} \\
+					&0 \ si\ x\in\mathbb{R}\textbackslash \mathbb{Q} \\
+				\end{cases}$			
+				Es derivable únicamente en $x=0$. La demostración se hace planteando la derivada por definición en ese mismo punto y resolviendo el mismo límite por \hyperref[definicion1]{definición}. Recomiendo a quien quiera probar esto que intente acotar el valor de $|f(x)|$
+					
+			\end{itemize}
+		
+\chapter{Unidad 4: Aplicación de la derivada - TVM}
+	\section{Máximos y mínimos (locales o relativos)}
+		Sea $f:I\to \mathbb{R}$:
+		
+		\begin{itemize}
+			\item M es máximo de f(x) $x \in I$ si:
+				\begin{itemize}
+					\item $\exists XM \in I /f(xM) = M$
+					\item $f(x) \leq M \forall x \in I$
+				\end{itemize}
+			\item m es mínimo de f(x) $x \in I$ si:
+				\begin{itemize}
+					\item $\exists Xm \in I /f(xm) = m$
+					\item $f(x) \geq m \forall x \in I$
+				\end{itemize}
+			\item a es extremo de f si f(a) es máximo o mínimo de f.
+		\end{itemize}
+		
+	\section{Teorema de Fermat}
+		Sea $f:(a,b)\to \mathbb{R}$ tal que f alcanza un extremo en $c\in I$.
+		
+		Entonces: f no es derivable en a ó $f'(c)=0$
+		
+	\section{Teorema de Weierstrass}
+		Sea $f:[a,b]\to \mathbb{R}$ continua. 
+		
+		Entonces f alcanza un máximo M y un mínimo m en $[a,b]$. Además $im(f)=[m,M]$
+		
+	\section{Teorema de Rolle}
+		Sea $f:[a,b]\to \mathbb{R}$ continua y derivable en $(a,b)$ y $f(a)=f(b)$.
+		
+		Entonces: $\exists c \in (a,b) / f'(c)=0$ (se puede probar a partir del teorema de fermat)
+		
+	\section{Corolario del Teorema de Rolle (raíces)}
+		Sea f continua en $[a,b]$ o $(a,b)$ y derivable en $(a,b)$.
+		
+		Entonces: Si f' tiene k raíces en $(a,b) \rightarrow$ f tiene a lo sumo k+1 raíces en $[a,b]$ o $(a,b)$
+		
+		Demostración: por absurdo, se plantea que f tiene al menos k+2 soluciones. Definiendo soluciones e intervalos entre soluciones, y aplicando teorema de Rolle se llega a que f' tiene k+1 soluciones (contradicción). ¿Se podrá probar por inducción?
+		
+		Combinando este teorema con el de Bolzano se puede probar la cantidad exacta de soluciones de una ecuación.
+		
+	\section{Corolario del Teorema de Rolle (inyectividad)}
+		Sea f continua en $[a,b]$ o $(a,b)$, derivable en $(a,b)$ y $f'(x) \neq 0 \ \forall x \in (a,b)$.
+		
+		Entonces f es inyectiva en $[a.b] o (a,b)$
+		
+		Demostración: Usando el corolario de raíces. Se prueba que f tiene una raíz como mucho. Se define una función auxiliar (cent en 0) y se verifica finalmente que tiene exactamente una raíz.
+		
+	\section{Teorema de valor medio de Lagrange (TVM)}
+		Sea f continua en $[a,b]$ y derivable en $(a,b)$
+		
+		Entonces: $\exists c \in (a,b) \ / \frac{f(b)-f(a)}{b-a} = f'(c)$
+		
+		Demostración: definir una función apropiada y utilizar el teorema de Rolle para probar que su derivada tiene una raíz en el intervalo ab.
+		
+	\section{Corolarios triviales de TVM}
+		Las funciones con derivada nula son constantes
+		
+		Las funciones con la misma derivada difieren por una constante
+		
+	\section{Corolario de TVM: acotación de funciones}
+		Sean $f$ y $g$ continuas en $[a,b]$, derivables en $(a,b)$. Si se cumple que:
+		
+		\begin{itemize}
+			\item $f(a)\leq g(a)$
+			\item $f'(x) < g'(x) \ \forall x \in (a,b]$
+		\end{itemize}
+	
+		Entonces $f(x)<g(x) \ \forall x \in (a,b]$
+		
+		Demostración: 
+		
+		Sea $h(x)=f(x)-g(x)$ y $h'(x)=f'(x)-g'(x)$
+		
+		Por hip., se tiene: $h(a) \leq 0$ y $h'(x) < 0 \ \forall x \in (a,b]$
+		
+		Se probará que $h(x)<0 \ \forall x \in (a,b]$
+		
+		Sea $x_1,x_2 \in [a,b]$. Wlog $x_1<x_2$. Ver que $h$ es continua en $[a,b]$ y derivable en $(a,b)$. Entonces se cumplen las hipótesis del teorema de Lagrange, así se tiene para todo $x_1,x_2$:
+		
+			$$\exists c \in (x_1,x_2) \ / \frac{h(x_2)-h(x_1)}{x_2-x_1} = h'(c)$$
+		
+			$$(x_1<x_2 \leftrightarrow x_2-x_1>0) \rightarrow sg(h(x_2)-h(x_1))=sg(h'(c))$$
+			
+		Puesto que $h'(x) < 0$, entonces:
+		
+			$$h'(c) < 0 \leftrightarrow h(x_2)-h(x_1) < 0 \leftrightarrow h(x_2) < h(x_1)$$ 
+			
+		Entonces $h$ es decreciente en $[a,b]$. Si $x_1=a$ (implica que $x_2 \in (a,b]$):
+		
+			$$h(x_2)<h(a)\leq 0 \leftrightarrow h(x)<0 \ \forall x \in (a,b]$$
+		
+		Se podría probar con $h(a)<0$ y entonces queda $h(x)<0 \ \forall x \in [a,b]$. Ver también que la demostración en intervalos al infinito es similar.
+		
+	\section{Teorema de valor medio de Cauchy (extensión de Lagranje)}	
+		Sean f,g continuas en $[a,b]$ y derivables en $(a,b)$ y $g'(x) \neq 0 \ \forall x \in (a,b)$
+		
+		Entonces: $\exists c \in (a,b) \ / \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(c)}{g'(c)}$
+		
+	\section{Regla de L'Hospital}
+		Sean f y g derivables en $E*(a,r)$ tal que se cumple:
+		
+			\begin{itemize}
+				\item $\lim_{x \to a}f(x)=\lim_{x \to a}g(x)=0 \vee \infty$
+				\item $g'(x) \neq 0 \ \forall x \in E*(a,r) \wedge \lim_{x \to a}\frac{f'(x)}{g'(x)}=L (L \in \mathbb{R} \vee L=\infty, \pm \infty)$
+			\end{itemize}
+		
+		Entonces: $\lim_{x \to a}\frac{f(x)}{g(x)}=L$
+		
+		La regla de L'Hospital sirve para indeterminaciones del tipo $0/0$ o $\infty/\infty$. También se usa en límites laterales y en indeterminaciones $0^0$ $\infty^0$ (llevar a una indeterminación $0/0$). 
+		
+		$$\lim_{x \to 0+}xlnx=\lim_{x \to 0+}\frac{lnx}{1/x}=\lim_{x \to 0+}\frac{1/x}{-1/x^2}=0$$
+		
+		Si se hubiera elegido al revés (poner el ln en el denominador), aplicar la regla de LH no resolvería el límite.
+		
+		La regla de L'hospital no siempre permite resolver indeterminaciones, a veces se necesita usar los métodos comunes para cálculo de límite.
+		
+\chapter{Unidad 5: Estudio de funciones}
+	\section{Asíntota horizontal}
+		Una recta $y=b (b\in \mathbb{R})$ es asíntota horizontal de una función $y=f(x)$ sí y sólo sí:
+		
+		$$\lim_{x \to +\infty}f(x)=b \vee \lim_{x \to -\infty}f(x)=b$$
+		
+		Cuando se encuentra alguna asíntota horizontal es necesario aclarar si está a la derecha ($x \to +\infty$), a la izquierda ($x \to -\infty$). O hacia ambos lados
+		
+	\section{Asíntota vertical}
+		Una recta $x=a (a\in \mathbb{R})$ es asíntota horizontal de una función $y=f(x)$ sí y sólo sí:
+		
+		$$\lim_{x \to a+}f(x)=+\infty \vee \lim_{x \to a-}f(x)=-\infty$$
+		
+		(El límite en a puede no ser infinito (no existir))
+		Las asíntotas verticales pueden estar en el dominio. (Ejemplo $f(x)=1/x, x\neq 0 ; x x=0$).
+		Se puede aclarar que no hay asíntotas en el dominio si se prueba que para cualquier a en el dominio de la función, el límite en $x \to a$ es igual a $f(a)$
+		
+	\section{Asíntota oblicua}
+		Una recta $y=ax+b$ es asíntota oblícua de $y=f(x)$ sí y sólo sí:
+		
+		$$\lim_{x \to \pm\infty}f(x)-(ax+b)=0$$
+		
+		Para calcular a, ver que: $a=\lim_{x \to \pm\infty}\frac{f(x)}{x}$. Por hipótesis, $a \in \mathbb{R}\textbackslash\{0\}$ entonces si no se cumple esto para a, es prueba suficiente de que gr(f) no tiene asíntotas oblícuas.
+		
+		Si $a \in \mathbb{R}$, entonces $b=\lim_{x \to \pm\infty}f(x)-ax$
+		
+		Al igual que las asíntotas horizontales, hay que aclarar hacia que lado del gráfico están. Se puede calcular directamente para $x \to \infty$ lo que mostraría que la recta es la misma hacia ambos lados.
+		
+	\section{Intervalos de monotonía}
+		$f:I\to\mathbb{R}$ es:
+		
+		\begin{description}
+			\item[Est. Creciente en I]: si $f(x1)<f(x2) \ \forall x1<x2 , \ x1,x2 \in I$
+			\item[Est. Decreciente en I]: si $f(x1)>f(x2) \ \forall x1<x2 , \ x1,x2 \in I$
+			\item[Monótona en I]: Si es est. creciente o est. decreciente.
+		\end{description}
+	
+	\section{Teorema de crecimiento}
+		Sea f continua en $[a,b]$ o $(a,b)$ (se pueden elegir intervalos semiabiertos también) y derivable en $(a,b)$
+		
+		\begin{itemize}
+			\item Si $f'(x)>0 \ \forall x \in (a,b)$, f es est. creciente en $[a,b]$ o $(a,b)$
+			\item Si $f'(x)<0 \ \forall x \in (a,b)$, f es est. decreciente en $[a,b]$ o $(a,b)$
+		\end{itemize}
+	
+		Demostración: usando TVM.
+		
+	\section{Puntos críticos}
+		a es punto crítico de f si: $a \in dom(f) \wedge (f'(x)=0 \vee \nexists f'(x))$
+		
+	\section{Extremos locales o relativos}
+	
+		\begin{itemize}
+			\item f alcanza un máximo local en a si: $\exists \delta >0 \ /f(a) \geq f(x) \ \forall x \in E(a,\delta)$
+			\item f alcanza un mínimo local en a si: $\exists \delta >0 \ /f(a) \leq f(x) \ \forall x \in E(a,\delta)$
+			\item f alcanza un extremos local en a si: f alcanza un máximo o mínimo local en a.
+		\end{itemize}
+	
+	\section{Teorema de puntos críticos (conclusión de Teorema de Fermat)}
+		Sea $f:I \to \mathbb{R}$. Si f alcanza un extremo relativo en $a \in I$, entonces a es un punto crítico de f.
+		
+	\section{Criterio de la 1° derivada para extremos}
+		Sea $f$ continua en $E(a,\delta)$ y derivable en $E^*(a-\delta,a+\delta)$:
+		
+		\begin{itemize}
+			\item Si $f'(x)>0$ en $E^-(a-\delta,a+\delta)$ y $f'(x)<0$ en $E^+(a-\delta,a+\delta)$, a es máximo relativo
+			\item Si $f'(x)<0$ en $E^-(a-\delta,a+\delta)$ y $f'(x)>0$ en $E^+(a-\delta,a+\delta)$, a es mínimo relativo
+		\end{itemize}
+	\section{Concavidad}
+		\begin{itemize}
+			\item $f$ tiene concavidad positiva en $(a,b)$ $\leftrightarrow$ $f'$ es estrictamente creciente en $(a,b)$
+			\item $f$ tiene concavidad negativa en $(a,b)$ $\leftrightarrow$ $f'$ es estrictamente decreciente en $(a,b)$
+		\end{itemize}
+	\section{Teorema de la 2° derivada}
+		Sea $f:(a,b)\to \Re$ dos veces derivable.
+			\begin{itemize}
+				\item Si $f''(x)>0 \forall x \in (a,b)$ entonces gr(f) es cóncavo hacia arriba en $(a,b)$
+				\item Si $f''(x)<0 \forall x \in (a,b)$ entonces gr(f) es cóncavo hacia abajo en $(a,b)$
+			\end{itemize}
+	\section{Punto de inflexión}
+		$(a,f(a))$ es un punto de inflexión de gr(f) si $f$ es continua en $a$ y la concavidad a la izquierda y derecha son diferentes alrededor de $a$, es decir, si el signo de la segunda derivada cambia en un entorno alrededor de $a$.
+	\section{Criterio de la 2° derivada para extremos locales}
+		Sea $f$ dos veces derivable en $a$:
+		\begin{itemize}
+			\item Si $f'(a)=0$ y $f''(a)>0 \rightarrow a es máximo local de f$
+			\item Si $f'(a)=0$ y $f''(a)<0 \rightarrow a es mínimo local de f$
+		\end{itemize}
+		Nota: si $f''(a)=0$ ó $\nexists f''(a)$ no se obtiene información sobre extremos (es necesario el criterio de la 1° derivada).
+	\section{Optimización de funciones}
+		Sea f continua en $I \in R$. Se define:
+		
+		\begin{itemize}
+			\item $S = sup(f) = sup(im(f))$
+			\item $i = inf(f) = inf(im(f))$
+			\item $M = máx(f) = máx(im(f))$
+			\item $m = mín(f) = mín(im(f))$
+		\end{itemize}
+	
+		\subsection{Caso 1: I=[a,b] (Se puede aplicar el teorema de Weierstrass)}
+			Por teorema de Weierstrass $\exists m, M$. Considerando que los extremos de f se producen en a, b o bien en $(a,b)$ (un punto crítico). Para hallar M(m), comparamos f(a), f(b) y f evaluada en cada punto crítico de $(a,b)$. El mayor(menor) valor obtenido será M(m).
+		
+		\subsection{Caso 2: I=[a,b] (No se puede aplicar el teorema de Weierstrass)}
+			Se requieren 3 hipótesis:
+			
+			\begin{itemize}
+				\item $a<b$ son extremos de $I$ (a y b pueden ser reales o infinito y no es necesario que $a,b\in I)$
+				\item $\lim_{x \to a+}f(x)=La$ y $\lim_{x \to b-}f(x)=Lb$
+				\item $f$ tiene una cantidad finita de puntos críticos en $(a,b)$
+			\end{itemize}
+		
+			Entonces:
+			
+			\begin{itemize}
+				\item Si $La=\infty(-\infty)$ o $Lb=\infty(-\infty) \rightarrow \nexists S(i)$
+				\item De lo contrario, comparar $La,Lb$ y $f$ evaluada en los puntos críticos de $(a,b)$. El mayor(menor) valor será $S(i)$. Si $S(i) \in I \rightarrow$ también es $M(m)$. 
+			\end{itemize}
+		
+\chapter{Unidad 6: Polinomio de Taylor}
+	\section{Polinomio de Taylor}
+		Sea la función f tal que $\exists f^{(n)}(a). P_n$ es el polinomio de Taylor de $f$ de orden n centrado en $x=a$ (se puede anotar como $T_n[f(x),a]$), que satisface:
+	
+	\begin{itemize}
+		\item $gr(T_n)\leq n$
+		\item $Pn^{(n)}(a)=f^{(n)}(a)$
+	\end{itemize}
+
+	\section{Expresión de Polinomio de Taylor de cualquier orden}
+	
+		$$T_n[f(x),a]=\sum_{k=0}^{n} \frac{f^{(k)}(a)(x-a)^k}{k!} = f(a)+f'(a)+1/2 f''(a)+...$$
+		
+	\section{Propiedades}
+		\begin{itemize}
+			\item $T_n[(\alpha f+ \beta g),a]= \alpha T_n[f,a] + \beta T_n[g,a]$
+			\item $(T_n[f,a])'=T_{n-1}(f',a)$
+			\item El polinomio de Taylor de grado n para fg es la parte hasta grado n de $T_n[f,a]T_n[g,a]$
+			\item El polinomio de Taylor de grado n para f/ge se obtiene dividiendo el polinomio $T_n[f,a]$ entre el polinomio $T_n[g,a]$, pero ordenados de la potencia menor a la potencia mayor, hasta llegar al grado n en el cociente
+			\item $gr(T_n)\leq n$
+			\item $T_1[f(x),a]$ es la recta tangente al gráfico de f en (a, f(a)).
+			\item Si $f\in \mathcal{P}_m$ entonces $P_n(x)=f(x) \ \forall n \geq m$
+		\end{itemize}
+	
+	\section{Definición: expresión del resto de Lagrange}
+		Sea $f:I\to\mathbb{R}$, $n$ veces derivable en $a \in I$, se define:
+		
+		\begin{description}
+			\item[Resto de orden n (error de aproximación)]: $R_n(x)=f(x)-T_n[f(x),a]$
+			\item[Error absoluto de aproximación]: $|R_n(x)|$
+			\item[Aproximación por defecto sobre x0]: Si $Rn(x0)>0$
+			\item[Aproximación por exceso sobre x0]: Si $Rn(x0)<0$ 
+		\end{description}
+	
+	\section{Teorema del resto de Lagrange}
+		Sea $f n+1$ veces derivable en $I \in \mathbb{R}$. Sea $x \in I$.
+		
+		Entonces: $\exists c \in (a,x) o (x,a) \ / R_n(x)=\frac{f^{(n+1)}(c)}{(n+1)!} (x-a)^{n+1}$
+		
+		El resto no se puede conocer (no tendría sentido definir el error), pero se puede acotar.
+		
+\chapter{Unidad 7: Función Primitiva (antiderivada), e Integral}
+	\section{Función primitiva}
+		Sea $f:I\to \mathbb{R}$ con $I=[a,b] o (a,b)$. $F$ es primitiva de $f$ si cumple:
+		
+		\begin{itemize}
+			\item $F$ es continua en $I$ (relevante para $I=[a,b]$)
+			\item $F$ es derivable en $(a,b) \wedge F'(x)=f(x) \ \forall x \in (a,b)$
+		\end{itemize}
+	
+		Nota, por lo general se omite, pero una función es primitiva de otra en un intervalo, es decir, hay que considerar el intervalo para el cual se afirma que una función es primitiva de otra.
+	
+	\section{Teorema: Forma general de primitivas}
+		Por TVM, las funciones cuya derivada es la misma función difieren por una constante. Es decir, si $F y G$ son primitivas e $f$ en $I$, entonces:
+		
+		$$ \exists C \in \mathbb{R} \ / G(x) = F(x)+C$$
+		
+	\section{Integral indefinida}
+		La función integral de $f$ es aquella que representa todas las primitivas de $f$:
+		
+		$$\int f(x) dx = F(x) + C \ C \in \mathbb{R}$$
+		
+	\section{Propiedades básicas}
+		\begin{itemize}
+			\item $\int(f(x)+g(x))dx = \int f(x)dx + \int g(x) dx$
+			\item $\int kf(x)dx = k \int f(x)dx$
+		\end{itemize}
+	
+		La demostración se hace a partir de la propiedad de linealidad de la derivada.
+		
+	\section{Teorema: Método de sustitución}
+		Sea $F$ primitiva de $f$ en $(a,b)$. Suponer que $g:(c,d)\to(a,b)$.
+		
+		Entonces $H'(x)=(F(G(x)))' = F'(g(x))g'(x) = f(g(x))g'(x)$
+		
+		$$\therefore \int f(g(x))g'(x)dx = F(g(x))+C$$
+		
+		Ejemplo:
+		
+		$$\int\frac{x}{1+x^2}dx ; (u=1+x^2 ; du=2xdx) = \int \frac{1}{2u}du = 1/2 \int\frac{1}{u}du = 1/2 \ln|u| = 1/2 \ln|1+x^2| + C$$
+		
+		Observación: En algunos casos es posible sacar las constantes afuera antes de usar este método, llegando a resultados que aparentan ser diferentes y en realidad no lo son:
+		
+		$$\int\frac{x}{2x^2+2}dx ; (u=2x^2+2 ; du=4xdx) = ... = 1/4\ln|2x^2+2|+C$$
+		
+		También se puede optar por:
+		
+		$$\int\frac{x}{2x^2+2}dx = 1/2\int\frac{x}{x^2+1}dx; (u=x^2+1 ; du=2xdx) = ... = 1/4\ln|x^2+1|+C$$
+		
+		Ambas resoluciones son igualmente válidas pues al diferir solo por una constante ($1/4\ln|2|$) representan el mismo conjunto de primitivas.
+	
+	\section{Teorema: Integración por partes}
+		
+		$$\int f(x)g'(x)dx = f(x)g(x)-\int g(x)f'(x)dx$$
+		
+		Otra forma más fácil de recordar:
+		
+		$$ (\int udv = uv - \int vdu) $$
+		
+		Demostración: considerar que $(fg)'=f'g+fg'$
+		
+		$$\int f'g+fg'dx=fg+C=\int f'gdx + \int fg'dx$$
+		
+		Ejemplo:
+		
+		$$\int xcosxdx ; (u=x \rightarrow du=dx ; dv=cosxdx \rightarrow v = senx) = xsenx-\int senxdx=xsenx+cosx+C$$
+		
+		$$\int senx e^x dx ; (u=senx \rightarrow du=cosxdx ; dv=e^xdx \rightarrow v=e^x) = $$
+		
+		$$senxe^x - \int e^xcosxdx ; (s=cosx \rightarrow ds=-senxdx ; dt=e^xdx \rightarrow t=e^x) = senxe^x-[cosxe^x-\int e^xcosxdx]$$
+		
+		Se conoce como integral cíclica. No es posible hallar directamente el resultado, pero luego:
+		
+		$$\int senxe^x = senxe^x-cosxe^x-\int e^xsenxdx$$
+		$$\int senxe^x = \frac{senxe^x-cosxe^x}{2}+C$$
+		
+	\section{Teorema: Expansión en fracciones simples}
+		Sea $\mathbb{R}[x]=p/p(x)=\sum_{k=0}^{n}a_kx^k \ a_k\in\mathbb{R}$ (el conjunto de polinomios con coeficientes reales).
+			
+		\
+			
+		Sean $p,q\in \mathbb[R[x]]$ con $gr(p)<gr(q)=n\geq1$
+		Sea $p=Cp1^k1p2^k2...pn^kn$ la factorización de $q$ en $\mathbb{R}[x]$
+		Entonces:
+			
+			$$\frac{p}{q}=\sum_{i=1}^{m}\sum_{j=1}^{k_i}\frac{p_{ij}}{q_i}$$
+			
+		Donde: $p_{ij}=\begin{cases}
+			&c_{ij}\in\mathbb{R} \ si\ p_i=x-\lambda_i \\
+			&c_{ij}x+d_{ij} \ si\ p_i=x^2+a_ix+b_i
+		\end{cases}$
+
+	Si el grado del numerador fuera mayor al denominador, dividir primero antes de hacer la descomposición.
+		
+	Ejemplo:
+		
+	$$\frac{4}{x^2-4}=\frac{4}{(x-2)(x+2)}=\frac{A}{x-2}+\frac{B}{x+2} \ \forall x \neq \pm2$$
+		
+	$$\frac{4}{(x-2)(x+2)}=\frac{A(x+2)+B(x-2)}{(x-2)(x+2)} \ \forall x \neq \pm2$$
+		
+	$$4=A(x+2)+B(x-2) \ \forall x \in \mathbb{R}-\{\pm 2\}$$
+		
+	Aplicar el siguiente teorema: Si f y g son polinomios y $f(x)=g(x)$ para infinitos valores de x, entonces $f(x)=g(x) \forall x \in \mathbb{R}$
+	La idea es que $h(x)=f(x)-g(x)=0 \leftrightarrow h$ tiene infinitas raíces.
+	Entonces h tiene que ser el polinomio nulo.
+		
+	\
+		
+	En este caso, el conjunto $\mathbb{R}-\{\pm 2\}$ tiene infinitos elementos. Luego:
+		
+	$$4=A(x+2)+B(x-2) \ \forall x \in \mathbb{R}$$
+		
+	Evaluando en x=2: $4=4A \leftrightarrow A=1$
+	Evaluando en x=-2: $4=-4B \leftrightarrow B=-1$
+		
+	Con esto se puede afirmar que:
+		
+	$$\int\frac{4}{x^2-4}dx = \int\frac{1}{x-2}-\frac{1}{x+2}dx = \int\frac{1}{x-2}dx-\int\frac{1}{x+2}dx$$
+		
+\chapter{Unidad 8: Integral definida (integral de Riemann)}
+	\section{Aproximación al área y Partición de un intervalo}
+		Sea $f:[a,b]\to\mathbb{R} \ / \ f(x)\geq 0$. $P$ es partición de $[a,b]$ si: $P: a=x_0<x_1<..<x_n=b$. $C$ es el conjunto de puntos intermedios ${C_1,..,C_n}$ tal que $c_i\in[x_{i-1},x_i]$.
+		
+		El área bajo la curva de una función se puede aproximar como: 
+		
+			$$A \approx \sum_{i=1}^{n}A_i= \sum_{i=1}^{n}f(C_i)\delta x_i$$
+		
+		La norma de la partición es $\|P\| = máx_{1\leq i \leq n} \delta x_i$
+		
+		Ver que cuanto más pequeños los $\delta x_i$ mejor es la aproximación.
+		
+	\section{Integral de Riemann}
+		Sea $f:[a,b]\to\mathbb{R}$ acotada. Se define:
+		
+		\begin{description}
+			\item[Suma de Riemann (de f en [a,b]):] $S(f,P,C)=\sum_{i=1}^{n}f(c_i)\delta x_i$
+			\item[Integral de Riemann (de f en [a,b]):] $\int_{a}^{b}f(x)dx=\lim_{\|P\| \to 0} S(f,P,C)$ (siempre que exista)
+		\end{description}
+		
+		Observación:
+		\begin{itemize}
+			\item $\int_{a}^{a}f(x)dx=0$
+			\item $\int_{a}^{b}f(x)dx=-\int{b}^{a}f(x)dx$
+		\end{itemize}
+	
+	\section{Teorema de integrabilidad}
+		Sea $f:[a,b]\to\mathbb{R}$ una función continua o bien con un número finito de discontinuidades SALTO. Entonces f es integrable.
+		
+	\section{Propiedades de la integral definida}
+		\begin{itemize}
+			\item $\int_{a}^{b}kf(x)dx = k \int_{a}^{b}f(x)dx$
+			\item $\int_{a}^{b}[f(x)+g(x)]dx=\int_{a}^{b}f(x)dx+\int_{a}^{b}g(x)dx$
+			\item Si $a\leq c \leq b$ y $f$ es integrable en $[a,c],[c,b] \rightarrow \int_{a}^{b}[f(x)+g(x)]dx=\int_{a}^{b}f(x)dx=\int_{a}^{c}f(x)dx+\int_{c}^{b}f(x)dx$
+			\item Si $f(x) \leq g(x) \forall x \in [a,b] \rightarrow \int_{a}^{b}f(x)dx \leq \int_{a}^{b}g(x)dx$
+		\end{itemize}
+
+
+	\section{Interpretaciones geométricas}
+		\begin{itemize}
+			\item Si $f(x)\geq 0 \forall x \in [a,b]$ la integral entre a y b es el área entre el gráfico de f y el eje de abcisas.
+			\item Si $f(x)\leq 0 \forall x \in [a,b]$ la integral entre a y b es el opuesto del área entre el gráfico de f y el eje de abcisas.
+			\item La integral de f en un intervalo dado es la suma de áreas por encima del eje x menos la suma de áreas por debajo del eje x
+		\end{itemize}
+	
+	
+	\section{Teorema del Valor Medio para integrales (TVMI)}
+		Sea $f:[a,b]\to \Re$ continua.
+		Entonces: $\exists c \in [a,b] \ / \ \int_{a}^{b}f(x)dx=f(c)(b-a)$
+		
+		Demostración: Por TW, $im(f)=[m,M]\leftrightarrow m\leq f(x) \leq M.$ Integrando los tres términos $\leftrightarrow m(b-a) \leq \int_{a}^{b}f(x)dx \leq M(b-a)$. Se divide por (b-a) y queda probado.
+		
+	\section{Teorema fundamental del Cálculo}
+		Sea $f:(a,b) \to \Re$ continua, $c \in (a,b)$ y $g(x)=\int_{c}^{x}f(t)dt$.
+		Entonces $g'(x)=f(x)$
+		
+		Demostración: $x\in (a,b), h\neq 0$
+		
+		$$ \frac{g(x+h)-g(x)}{h}=\frac{\int_{c}^{x+h}f(t)dt-\int_{c}^{x}f(t)dt}{h}=\frac{\int_{x}^{x+h}f(t)dt}{(x+h)-x}=f(c(h))$$
+		
+		En el último paso se usó TVMI. $h$ queda comprendido siempre entre $x$ y $x+h$, y como $c$ está entre $x$ y $x+h$ entonces se expresa como función de $h$.
+		Tomando límite de la expresión de arriba, si x tiende a 0, entonces $c(h)$ tiende a $x$, lo que completa la prueba.
+		
+	\section{Teorema fundamental del cálculo extendido}
+		Sea $\alpha, \beta:[c,d] \to [a,b]$ derivables y $f:[a,b]\to \mathbb{R}$ continua.
+		Si $F(x)=\int_{\alpha(x)}^{\beta(x)}f(u)du$ con $x \in [c,d]$, entonces:
+	
+		$$F'(x)=f(\beta(x))\beta'(x)-f(\alpha(x))\alpha'(x)$$
+		
+	\section{Teorema: Regla de Barrow}
+		Sea $f:[a,b] \to \Re$ continua y $F:[a,b]\to \Re$ una primitiva de $f$.
+		Entonces $\int_{a}^{b}f(x)dx=F(b)-F(a)$, que por notación se escribirá como $F(x)\mid_{a}^{b}$.
+		
+	\section{Teorema: Cambio de variable}
+		Sea $f$ continua en I, $g:[c,d]\to I$ derivable con continuidad. Entonces:
+	
+	$$\int_{a}^{b}f(x)g'(x)dx = f(x)g(x)\mid_{a}^{b} - \int_{a}^{b}g(x)f'(x)dx$$
+	
+	\section{Teorema de 'Bolzano' para integrales}
+		Sea $f:[a,b]\to\Re$ continua, $f(a)=1, f(b)=0$ e $\int_{a}^{b}f(t)dt >0$. Entonces:
+		
+		$$\exists c \in (a,b) \ / \ f(c)=\int_{a}^{c}f(t)dt$$
+		
+		Demostración: Sea $h(x)=f(x)-\int_{a}^{b}f(t)dt$. Como h es continua, $h(a)=f(a)-0=1>0$, $h(b)=f(b)-\int_{a}^{b}f(t)dt<0$, entonces se cumplen las hipótesis del Teorema de Bolzano...
+		
+	\section{Teorema de 'Cauchy' para integrales}
+		Sea $f, g$ continuas en $[0,1]$, derivables en $(0,1)$ y $f(1)=g(1)=0$. Entonces:
+		
+		$$\exists c \in (a,b) \ / \ g'(c)\int_{0}^{c}f(t)dt=f'(c)\int_{0}^{c}g(t)dt$$
+		
+		Demostración: Sea $H(x)=g(x)\int_{0}^{x}f(t)dt-f(x)\int_{0}^{x}g(t)dt$, H es continua en $[0,1]$ H es derivable en $(0,1)$, también $H(0)=H(1)=0$. Entonces se cumplen las hipótesis del Teorema de Rolle:
+		
+		$$\exists c \in (0,1) \ / \ H'(c)=0$$
+		
+		Usando el teorema del cálculo extendido para $H'(c)$, se llega al resultado deseado...
+	
+\chapter{Unidad 9: Aplicaciones de la integral definida}
+	\section{Cálculo de áreas}
+		Sea $f:[a,b] \to \Re$ , $g:[a,b] \to \Re$ , $g(x) \leq f(x)$. El área comprendida entre las gráficas de $f(x)$ y $g(x)$ se calcula como $\int_{a}^{b}f(x)-g(x)dx$. (Integral de techo - piso)
+		
+		Observaciones:
+			\begin{itemize}
+				\item En muchos casos conviene plantear una integral respecto de y.
+			\end{itemize}
+		
+	\section{Derivada en un intervalo cerrado}
+		Sea $f:[a,b]\to \mathbb{R}$. 
+		\begin{itemize}
+			\item Si $x \in (a,b)$, $f'(x)$ se define de la forma usual
+			\item Si $x=a$ , $f'(a)=f'(a+)$
+			\item Si $x=b$, $f'(b)=f'(b-)$
+		\end{itemize}
+	
+	\section{Longitud de arco}
+		Sea $f:[a,b]\to\mathbb{R}$ continua y derivable con continuidad en $[a,b]$.
+		Entonces: $l(a,b)=\int_{a}^{b}\sqrt{1+f'^2(x)}dx$.
+		
+		
+\end{document}
