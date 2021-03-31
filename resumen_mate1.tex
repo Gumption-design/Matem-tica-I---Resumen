@@ -11,7 +11,7 @@
 	linkcolor=blue,
 	citecolor=blue,
 	filecolor=magenta,      
-	urlcolor=teal,
+	urlcolor=red,
 	pdftitle={Resumen Mate 1},
 	breaklinks=true,
 }
@@ -44,7 +44,7 @@
 	
 	\textbf{Este material sólo de consulta. No utilizar en reemplazo del material o apuntes de estudio que ofrezca la cátedra.}
 	
-	Cualquier colaboración o sugerencia es bienvenida.
+	Cualquier \href{https://github.com/Gumption-design/Matem-tica-I---Resumen/tree/main}{colaboración} o sugerencia es bienvenida.
 	
 	\
 	
@@ -497,7 +497,7 @@ El conjunto $[-1,1]$ está acotado y tiene máximo y mínimo.
 				
 				\item $f(x)=x^2\lfloor x \rfloor$ es derivable?
 				
-				Si $x \notin \mathbb{Z}$, entonces $\exists k \in \mathbb{Z} \ / \ k < x <k+1$. A su vez esto implica que $\lfloor x \rfloor = k$ (constante). Por lo que es una función derivable. Por otro lado si $x^2$ es derivable en $\mathbb{R}$ entonces $x^2$ es derivable en $\mathbb{R\textbackslash Z}$. Luego $f$ es derivable en  $\mathbb{R\textbackslash Z}$ por ser producto de funciones derivables.
+				Si $x \notin \mathbb{Z}$, entonces $\exists k \in \mathbb{Z} \ / \ k < x <k+1$. A su vez esto implica que $\lfloor x \rfloor = k$ (constante). Por lo que es una función derivable. Por otro lado si $x^2$ es derivable en $\mathbb{R}$ entonces $x^2$ es derivable en $\mathbb{R\backslash Z}$. Luego $f$ es derivable en  $\mathbb{R\backslash Z}$ por ser producto de funciones derivables.
 				
 				Si $x =k \in \mathbb{Z}$ (Para este caso conviene probar la no continuidad directamente). Puesto que:
 				
@@ -509,11 +509,11 @@ El conjunto $[-1,1]$ está acotado y tiene máximo y mínimo.
 				
 				$$\lim_{x \to 0}\frac{f(x)-f(0)}{x} = \lim_{x \to 0}\frac{f(x)}{x} = \lim_{x \to 0}x \lfloor x \rfloor (= "0*acot") = 0 = f'(0)$$
 				
-				Luego la función es derivable sólo en $\{\mathbb{R}\textbackslash \mathbb{Z}\} \cup \{0\}$
+				Luego la función es derivable sólo en $\{\mathbb{R}\backslash \mathbb{Z}\} \cup \{0\}$
 				
-				\item $f(x)=\sqrt{|x|}$ es derivable en $\mathbb{R}\textbackslash \{0\}$ puesto que el argumento de la raíz es positivo (la raíz es función elemental). En 0, la función no es derivable (ver que el límite da $+ \inf$, por lo que la recta tangente es vertical).
+				\item $f(x)=\sqrt{|x|}$ es derivable en $\mathbb{R}\backslash \{0\}$ puesto que el argumento de la raíz es positivo (la raíz es función elemental). En 0, la función no es derivable (ver que el límite da $+ \inf$, por lo que la recta tangente es vertical).
 				
-				\item $f(x)=|x|^{k}$ $(k>0)$, la función es derivable en $\mathbb{R}\textbackslash \{0\}$ por ser composición de funciones derivables. En $x=0$:
+				\item $f(x)=|x|^{k}$ $(k>0)$, la función es derivable en $\mathbb{R}\backslash \{0\}$ por ser composición de funciones derivables. En $x=0$:
 				
 				$$f'(0+) = \lim_{x \to 0+}{\frac{f(x)-f(0)}{x}} = \lim_{x \to 0+}{\frac{f(x)}{x}} = \lim_{x \to 0+}{\frac{|x|^{k}}{x}} = \lim_{x \to 0+}{\frac{x^{k}}{x}} = \lim_{x \to 0+}{x^{k-1}} = $$
 				
@@ -530,7 +530,7 @@ El conjunto $[-1,1]$ está acotado y tiene máximo y mínimo.
 					&-1 \ si\ k=1 \\
 				\end{cases}$
 			
-			En * no vale hacer $(-x)^{k}=(-1)^kx^k$.  Luego $f$ es derivable en $\mathbb{R}\textbackslash \{0\}$ si $k>1$.
+			En * no vale hacer $(-x)^{k}=(-1)^kx^k$.  Luego $f$ es derivable en $\mathbb{R}\backslash \{0\}$ si $k>1$.
 			\end{itemize}
 		
 		\subsection{Continuidad de la función derivada}
@@ -559,7 +559,7 @@ El conjunto $[-1,1]$ está acotado y tiene máximo y mínimo.
 				
 				\item Un último ejemplo. La función $f(x)= \begin{cases}
 					&x^2 \ si\ x\in\mathbb{Q} \\
-					&0 \ si\ x\in\mathbb{R}\textbackslash \mathbb{Q} \\
+					&0 \ si\ x\in\mathbb{R}\backslash \mathbb{Q} \\
 				\end{cases}$			
 				Es derivable únicamente en $x=0$. La demostración se hace planteando la derivada por definición en ese mismo punto y resolviendo el mismo límite por \hyperref[definicion1]{definición}. Recomiendo a quien quiera probar esto que intente acotar el valor de $|f(x)|$
 					
@@ -705,7 +705,7 @@ El conjunto $[-1,1]$ está acotado y tiene máximo y mínimo.
 		
 		$$\lim_{x \to \pm\infty}f(x)-(ax+b)=0$$
 		
-		Para calcular a, ver que: $a=\lim_{x \to \pm\infty}\frac{f(x)}{x}$. Por hipótesis, $a \in \mathbb{R}\textbackslash\{0\}$ entonces si no se cumple esto para a, es prueba suficiente de que gr(f) no tiene asíntotas oblícuas.
+		Para calcular a, ver que: $a=\lim_{x \to \pm\infty}\frac{f(x)}{x}$. Por hipótesis, $a \in \mathbb{R}\backslash\{0\}$ entonces si no se cumple esto para a, es prueba suficiente de que gr(f) no tiene asíntotas oblícuas.
 		
 		Si $a \in \mathbb{R}$, entonces $b=\lim_{x \to \pm\infty}f(x)-ax$
 		

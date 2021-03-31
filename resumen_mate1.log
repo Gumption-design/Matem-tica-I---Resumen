@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.11.1)  30 MAR 2021 21:33
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.11.1)  30 MAR 2021 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -463,34 +463,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 433.
 
-[12]
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 500.
-
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 500.
-
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 512.
-
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 514.
-
-[13]
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 516.
-
-
+[12] [13]
 Overfull \hbox (10.81703pt too wide) detected at line 526
 \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (0\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 ) = [
 ] [] = [] [] = [] [] = [] [] =[]= [] [] =
  []
-
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 533.
-
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 562.
 
 [14]
 Capítulo 4.
@@ -498,9 +475,6 @@ Capítulo 4.
 
 ] [16] [17]
 Capítulo 5.
-
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 708.
-
 [18
 
 ]
@@ -538,7 +512,7 @@ Package rerunfilecheck Info: File `resumen_mate1.out' has not changed.
 Here is how much of TeX's memory you used:
  10828 strings out of 477401
  153540 string characters out of 5838698
- 512955 words of memory out of 5000000
+ 512954 words of memory out of 5000000
  30225 multiletter control sequences out of 15000+600000
  538804 words of font info for 58 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
